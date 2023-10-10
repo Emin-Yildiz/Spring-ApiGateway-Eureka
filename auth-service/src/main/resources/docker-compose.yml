@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres:latest
+    container_name: database2
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=auth
+      - POSTGRES_HOST=postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_data2:/var/lib/postgresql/data:Z
+
+volumes:
+  db_data2:

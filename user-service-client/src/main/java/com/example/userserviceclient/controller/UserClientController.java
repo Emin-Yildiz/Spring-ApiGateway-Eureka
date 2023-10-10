@@ -23,4 +23,9 @@ public class UserClientController {
     public ResponseEntity<List<User>> getUsersFromUserService(){
         return ResponseEntity.ok(userClientService.getUsersFromUserService());
     }
+
+    @GetMapping("/gateway")
+    public ResponseEntity<List<User>> getUsersFromGateway(){
+        return ResponseEntity.ok(userClientService.getUsersFromGateway());
+    }
 }

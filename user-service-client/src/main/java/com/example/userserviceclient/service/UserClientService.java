@@ -32,4 +32,17 @@ public class UserClientService {
             return null;
         }
     }
+
+    public List<User> getUsersFromGateway(){
+        List<ServiceInstance> instances = discoveryClient.getInstances("gateway-service");
+
+        if (instances != null && !instances.isEmpty()) {
+            String url = instances.get(0).getUri().toString();
+            url += "/user";
+            List<User> result = restTemplate.getForObject(url, List.class);
+            return result;
+        }else {
+            return null;
+        }
+    }
 }
